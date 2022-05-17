@@ -19,11 +19,24 @@ class UserModel {
 
                 if (request.isSuccessful) {
                     if (it != null) {
-                        response(UserResponse.OnSuccess(it.nameUser))
-                        response(UserResponse.OnSuccess(it.phoneUser))
-                        response(UserResponse.OnSuccess(it.emailUser))
+                        response(UserResponse.OnSuccess(it))
                     } else {
                         response(UserResponse.OnError("list is empty"))
+                    }
+                }
+            } }
+    }suspend fun getUserPost(response: (UserResponse) -> Unit) {
+        val request = getRetrofit().create(apiService::class.java).getPostUser("posts")
+        coroutineScope {
+            val body = request.body()
+            body.let {
+
+                if (request.isSuccessful) {
+                    if (it != null) {
+                        response(UserResponse.OnSuccess(it))
+
+                    } else {
+                        response(UserResponse.OnError("ha ocurrido un error"))
                     }
                 }
             } }

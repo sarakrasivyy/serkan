@@ -6,17 +6,17 @@
     android:layout_height="match_parent"
     tools:ignore="ExtraText">
 
-   <ImageView
+   <!--<ImageView
        android:id="@+id/ivdark"
        android:layout_width="0dp"
-       android:layout_height="0dp"
+       android:layout_height="0dp"&lt;!&ndash;
        app:layout_constraintBottom_toTopOf="@id/cblike"
        app:layout_constraintDimensionRatio="H, 4:3"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintHorizontal_bias="0.0"
        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toBottomOf="@+id/tvtitle"
-       />
+       app:layout_constraintTop_toBottomOf="@+id/tvtitle"&ndash;&gt;
+       />-->
 
 
 
