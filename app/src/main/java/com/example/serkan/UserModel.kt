@@ -10,28 +10,33 @@ class UserModel {
         return Retrofit.Builder().baseUrl("https://jsonplaceholder.typicode.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+
     }
+
     suspend fun getUserDate(response: (UserResponse) -> Unit) {
         val request = getRetrofit().create(apiService::class.java).getDatosUser("users")
         coroutineScope {
-            val body = request.body()
+            val body = request
             body.let {
 
                 if (request.isSuccessful) {
                     if (it != null) {
-                        response(UserResponse.OnSuccess(it))
+                        response(UserResponse.OnSuccess(it.body()))
                     } else {
                         response(UserResponse.OnError("list is empty"))
                     }
                 }
-            } }
-    }suspend fun getUserPost(response: (UserResponse) -> Unit) {
-        val request = getRetrofit().create(apiService::class.java).getPostUser("posts")
+            }
+        }
+    }
+
+    suspend fun getUserPost(response: (UserResponse) -> Unit) {
+        val request1 = getRetrofit().create(apiService::class.java).getPostUser("posts")
         coroutineScope {
-            val body = request.body()
+            val body = request1.body()
             body.let {
 
-                if (request.isSuccessful) {
+                if (request1.isSuccessful) {
                     if (it != null) {
                         response(UserResponse.OnSuccess(it))
 
@@ -39,11 +44,7 @@ class UserModel {
                         response(UserResponse.OnError("ha ocurrido un error"))
                     }
                 }
-            } }
+            }
+        }
     }
-
-
-
-
-
 }

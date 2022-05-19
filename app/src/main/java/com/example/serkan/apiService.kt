@@ -1,5 +1,6 @@
 package com.example.serkan
 
+import com.example.example.User
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Url
@@ -7,10 +8,10 @@ import retrofit2.http.Url
 interface apiService {
 
     @GET
-    suspend fun getDatosUser(@Url url: String): Response<DatosUser>
+    suspend fun getDatosUser(@Url url: String): Response<List<User>>
 
     @GET
-    suspend fun getPostUser(@Url url: String): Response<PostUser>
+    suspend fun getPostUser(@Url url: String): Response<List<PostUser>>
 
     @GET
     suspend fun getAlbumUser(@Url url: String): Response<AlbumUser>

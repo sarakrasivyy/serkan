@@ -8,69 +8,7 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <!--<androidx.appcompat.widget.SearchView
-            android:id="@+id/svbuscador"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="buscar usuarios"
-            app:endIconMode="clear_text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0" />-->
-
-
-
-
-           <!-- <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/mtvnombre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="26dp"
-                android:textAppearance="?attr/textAppearanceBody1"
-                android:textColor="@color/purple_500"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/svbuscador"
-                tools:text="hello time" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/mtvtelefono"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="@color/purple_500"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/mtvnombre"
-                tools:text="telefono" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/mtvemail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:textColor="@color/purple_500"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/mtvtelefono"
-                tools:text="email" />
--->
-
-    <!--    <ProgressBar
-            android:id="@+id/pbar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-             />-->
-
-
-    <SearchView
+   <SearchView
         android:id="@+id/svbuscador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -80,26 +18,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="@id/svbuscador"
+        tools:itemCount="5"
         tools:listitem="@layout/itemlist" />
+
 </LinearLayout>
-<!--
-<ImageView
-android:id="@+id/ivdogini"
-android:layout_width="wrap_content"
-android:layout_height="match_parent"
-android:scaleType="centerCrop">
-</ImageView>
 
-
-<androidx.recyclerview.widget.RecyclerView
-android:id="@+id/rvlistado"
-android:layout_width="0dp"
-android:layout_height="0dp"
-tools:listitem="@layout/visitop"
-app:layout_constraintStart_toStartOf="parent"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintTop_toTopOf="parent"
-app:layout_constraintBottom_toBottomOf="parent"/>
--->
 
 

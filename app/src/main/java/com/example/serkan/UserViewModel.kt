@@ -4,29 +4,36 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.example.User
 import kotlinx.coroutines.launch
 
 class UserViewModel: ViewModel() {
     private val userModel= UserModel()
-    private val getUserss: MutableLiveData<RequesUser<MutableList<DatosUser>>> = MutableLiveData()
+    private val getUserss: MutableLiveData<RequesUser<MutableList<User>>> = MutableLiveData()
     private val getUserMutableLiveData: MutableLiveData<RequesUser<List<String>>> = MutableLiveData()
+    fun getUservista(): LiveData<RequesUser<MutableList<User>>> = getUserss
 
-    fun getDogsLiveData(): LiveData<RequesUser<List<String>>> = getUserMutableLiveData
-    fun getRazasvista(): LiveData<RequesUser<MutableList<DatosUser>>> = getUserss
+    fun getUserLiveData(): LiveData<RequesUser<List<String>>> = getUserMutableLiveData
 
 
-    fun getDatosUser(query: String) {
-        getUserMutableLiveData.value = RequesUser.OnLoading
+    private val postModel= UserModel()
+    private val getPost: MutableLiveData<RequesUser<MutableList<PostUser>>> = MutableLiveData()
+    private val getPostMutableLiveData: MutableLiveData<RequesUser<List<String>>> = MutableLiveData()
+    fun getPostvista(): LiveData<RequesUser<MutableList<PostUser>>> = getPost
+
+
+    fun getDatosPost() {
+        getPostMutableLiveData.value = RequesUser.OnLoading
         viewModelScope.launch {
-            userModel.getUserDate(){ userResponse: UserResponse ->
+            postModel.getUserPost{ userResponse: UserResponse ->
                 when (userResponse){
                     is UserResponse.OnSuccess<*> -> {
-                        getUserMutableLiveData.postValue(
+                        getPostMutableLiveData.postValue(
                             RequesUser.OnSuccess(userResponse.data as List<String>)
                         )
                     }
                     is UserResponse.OnError -> {
-                        getUserMutableLiveData.postValue(
+                        getPostMutableLiveData.postValue(
                             RequesUser.OnError(userResponse.error)
                         )
 
@@ -43,13 +50,9 @@ class UserViewModel: ViewModel() {
                 when (userResponse){
                     is UserResponse.OnSuccess<*> -> {
 
-                        val data = userResponse.data as MutableList<String>
-                        val datos = mutableListOf<DatosUser>()
-                        data.forEachIndexed { index, title ->
-                            datos.add(DatosUser(idUser = index, nameUser = title, emailUser= title, phoneUser=title))
-                        }
+                        val data = userResponse.data as MutableList<User>
                         getUserss.postValue(
-                            RequesUser.OnSuccess(datos)
+                            RequesUser.OnSuccess(data)
                         )
                     }
                     is UserResponse.OnError -> {

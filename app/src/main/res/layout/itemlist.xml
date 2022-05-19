@@ -2,73 +2,87 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:backgroundTint="#F3FFFFFF">
+    android:layout_height="wrap_content"
+    android:backgroundTint="#F3FFFFFF"
+    android:orientation="horizontal">
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvtarjeta"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:cardMaxElevation="16dp">
+        android:layout_height="144dp"
+        android:layout_marginStart="@dimen/common_padding_default"
+        android:layout_marginTop="@dimen/common_padding_default"
+        android:layout_marginEnd="@dimen/common_padding_default"
+        app:cardMaxElevation="@dimen/common_padding_default">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="8dp">
+        <TextView
+            android:id="@+id/viewnombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="name"
+            android:layout_marginStart="@dimen/common_padding_default"
+            android:textColor="@color/purple_200"
+            android:textSize="24dp" />
 
+        <TextView
+            android:id="@+id/viewtelefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_padding_default"
+            android:layout_marginTop="25dp"
+            android:paddingStart="24dp"
+            android:text="phone"
+            android:textColor="@color/purple_700"
+            android:textSize="18dp" />
 
-            <TextView
-                android:id="@+id/viewnombre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:text="name"
-                android:textColor="@color/purple_200"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/viewtelefono"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-
-                android:textColor="@color/purple_700"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/viewemail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="@color/purple_700"
-                android:textSize="16sp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right">
-
-                <Button
-                    android:id="@+id/btVerMas"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@color/design_default_color_background"
-                    android:textColor="@color/purple_200"
-
-                    android:backgroundTint="@color/white"
-                    android:text="ver publicaciones"
-                    android:textAlignment="gravity"
-                    app:iconGravity="textStart" />
-            </LinearLayout>
+        <TextView
+            android:id="@+id/viewemail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_padding_default"
+            android:layout_marginTop="48dp"
+            android:paddingStart="24dp"
+            android:text="email"
+            android:textColor="@color/purple_700"
+            android:textSize="18dp" />
 
 
-        </LinearLayout>
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_padding_default"
+            android:paddingTop="48dp"
+            app:srcCompat="@drawable/ic_email" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/common_padding_default"
+            android:paddingTop="24dp"
+            app:srcCompat="@drawable/ic_call" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ver publicaciones"
+            android:textColor="@color/purple_200"
+            android:layout_marginStart="150dp"
+            android:layout_marginTop="90dp"
+            android:layout_marginEnd="6dp"/>
+
 
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Button" />
 
 
 </LinearLayout>
