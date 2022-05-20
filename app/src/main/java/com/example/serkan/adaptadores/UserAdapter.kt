@@ -1,23 +1,25 @@
-package com.example.serkan
+package com.example.serkan.adaptadores
 
-import android.service.autofill.OnClickAction
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.cardview.widget.CardView
-import androidx.lifecycle.LiveData
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.example.User
+import com.example.serkan.R
 import com.example.serkan.databinding.ItemlistBinding
 import com.example.serkan.databinding.PublicacionesBinding
-import com.squareup.picasso.RequestCreator
 
-class UserAdapter (private val users: List<User>) : RecyclerView.Adapter<UserAdapter.UserViewHol>() {
+class UserAdapter(
+    private val users: List<User>,
+    val clickClosure: (User) -> Unit,
+
+) : RecyclerView.Adapter<UserAdapter.UserViewHol>() {
 
     /*interface clicker{
         fun verMas(postvista: LiveData<RequesUser<MutableList<PostUser>>>){
 
-
+val
         }*/
 
 
@@ -40,12 +42,7 @@ class UserAdapter (private val users: List<User>) : RecyclerView.Adapter<UserAda
       //  holder.bing4Tel(item1)
         val item2: String = users[position].email ?: ""
         holder.bing2(item2)
-      //  holder.bing4email(item2)
-        /*val item3: OnClickAction
-        holder.bing4(nombre = (item),telefono =(item1),email =(item2))
-*/
-
-
+        holder.bindClick()
     }
 
     override fun getItemCount(): Int = users.size
@@ -78,9 +75,15 @@ class UserAdapter (private val users: List<User>) : RecyclerView.Adapter<UserAda
 
         fun bing2(email: String) {
             binding.viewemail.text = email
-/*
+        }
+        fun bing3(id: String) {
+            binding.tviduser.text = id
+        }
+       /* fun bingboton(clickClosur: String) {
+            binding..setOnClickListener { clickActionPost.verMas(vermas.getPostvista()) }
+            }*/
 
-      fun bingVista(item:View) {
+    /*  fun bingVista(item:View) {
                binding.btVerMas.setOnClickListener { binding1.cvtarjetapost }
             }
 */
@@ -88,9 +91,19 @@ class UserAdapter (private val users: List<User>) : RecyclerView.Adapter<UserAda
       /*  fun bingVer(vermas: UserViewModel) {
              //   binding.btVerMas.setOnClickListener { clickActionPost.verMas(vermas.getPostvista()) }
             }*/
+
+        fun bindClick(){
+            binding.buttonactivation.setOnClickListener {
+                startActivity(Intent( this, PublicacionesBinding::class.java))
+                println("hicieron click sobre te")
+
+            }
         }
+
     }
 }
+
+
 
 
 

@@ -1,5 +1,7 @@
-package com.example.serkan
+package com.example.serkan.modelos
 
+import com.example.serkan.UserResponse
+import com.example.serkan.apiService.apiService
 import kotlinx.coroutines.coroutineScope
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

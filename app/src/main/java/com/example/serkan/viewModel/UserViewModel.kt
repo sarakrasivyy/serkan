@@ -1,10 +1,14 @@
-package com.example.serkan
+package com.example.serkan.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.example.User
+import com.example.serkan.adaptadores.User
+import com.example.serkan.apiService.PostUser
+import com.example.serkan.RequesUser
+import com.example.serkan.modelos.UserModel
+import com.example.serkan.UserResponse
 import kotlinx.coroutines.launch
 
 class UserViewModel: ViewModel() {
@@ -15,35 +19,7 @@ class UserViewModel: ViewModel() {
 
     fun getUserLiveData(): LiveData<RequesUser<List<String>>> = getUserMutableLiveData
 
-
-    private val postModel= UserModel()
-    private val getPost: MutableLiveData<RequesUser<MutableList<PostUser>>> = MutableLiveData()
-    private val getPostMutableLiveData: MutableLiveData<RequesUser<List<String>>> = MutableLiveData()
-    fun getPostvista(): LiveData<RequesUser<MutableList<PostUser>>> = getPost
-
-
-    fun getDatosPost() {
-        getPostMutableLiveData.value = RequesUser.OnLoading
-        viewModelScope.launch {
-            postModel.getUserPost{ userResponse: UserResponse ->
-                when (userResponse){
-                    is UserResponse.OnSuccess<*> -> {
-                        getPostMutableLiveData.postValue(
-                            RequesUser.OnSuccess(userResponse.data as List<String>)
-                        )
-                    }
-                    is UserResponse.OnError -> {
-                        getPostMutableLiveData.postValue(
-                            RequesUser.OnError(userResponse.error)
-                        )
-
-                    }
-                }
-            }
-        }
-    }
-
-    fun getDatosVista() {
+fun getDatosVista() {
         getUserss.value = RequesUser.OnLoading
         viewModelScope.launch {
             userModel.getUserDate{ userResponse: UserResponse ->
@@ -65,6 +41,8 @@ class UserViewModel: ViewModel() {
             }
         }
     }
+
+
 }
 
 

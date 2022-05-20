@@ -1,6 +1,6 @@
-package com.example.serkan
+package com.example.serkan.apiService
 
-import com.example.example.User
+import com.example.serkan.adaptadores.User
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Url

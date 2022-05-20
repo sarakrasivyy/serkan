@@ -1,13 +1,12 @@
-package com.example.serkan
+package com.example.serkan.adaptadores
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
-import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
-import com.example.example.User
-import com.example.serkan.databinding.ItemlistBinding
+import com.example.serkan.R
+import com.example.serkan.apiService.PostUser
 import com.example.serkan.databinding.PostItemBinding
 import com.squareup.picasso.RequestCreator
 

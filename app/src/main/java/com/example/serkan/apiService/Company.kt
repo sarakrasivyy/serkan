@@ -1,4 +1,4 @@
-package com.example.example
+package com.example.serkan.apiService
 
 import com.google.gson.annotations.SerializedName
 
