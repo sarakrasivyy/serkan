@@ -32,8 +32,8 @@ class UserModel {
         }
     }
 
-    suspend fun getUserPost(response: (UserResponse) -> Unit) {
-        val request1 = getRetrofit().create(apiService::class.java).getPostUser("posts")
+    suspend fun getUserPost(query: String, response: (UserResponse) -> Unit) {
+        val request1 = getRetrofit().create(apiService::class.java).getPostUser("posts?userId=$query")
         coroutineScope {
             val body = request1.body()
             body.let {

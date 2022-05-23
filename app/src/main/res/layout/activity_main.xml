@@ -9,24 +9,32 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-   <SearchView
+    <SearchView
         android:id="@+id/svbuscador"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btvolvercontactos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/purple_200"
+        android:text="contactos" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvlista"
         android:layout_width="match_parent"
         android:layout_height="630dp"
         app:layout_constraintBottom_toBottomOf="@id/svbuscador"
-        tools:itemCount="5"
+        android:visibility="visible"
         tools:listitem="@layout/itemlist" />
-<!--
-    <com.google.android.material.bottomnavigation.BottomNavigationView
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPost2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/menu_item"
-      />-->
+        android:layout_height="630dp"
+        android:visibility="gone"
+        tools:listitem="@layout/post_item" />
 
 
 </LinearLayout>

@@ -13,11 +13,9 @@ import kotlinx.coroutines.launch
 
 class UserViewModel: ViewModel() {
     private val userModel= UserModel()
-    private val getUserss: MutableLiveData<RequesUser<MutableList<User>>> = MutableLiveData()
-    private val getUserMutableLiveData: MutableLiveData<RequesUser<List<String>>> = MutableLiveData()
+    private val getUserss: MutableLiveData<RequesUser<MutableList<User>>> = MutableLiveData()git a
     fun getUservista(): LiveData<RequesUser<MutableList<User>>> = getUserss
 
-    fun getUserLiveData(): LiveData<RequesUser<List<String>>> = getUserMutableLiveData
 
 fun getDatosVista() {
         getUserss.value = RequesUser.OnLoading

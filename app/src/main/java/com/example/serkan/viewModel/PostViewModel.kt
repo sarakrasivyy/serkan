@@ -18,10 +18,10 @@ class PostViewModel: ViewModel() {
     fun getPostvistaLiveData(): LiveData<RequesUser<List<PostUser>>> = getPostMutableLiveData
 
 
-    fun getDatosPost() {
+    fun getDatosPost( idUser: Int) {
         getPostMutableLiveData.value = RequesUser.OnLoading
         viewModelScope.launch {
-            postModel.getUserPost{ userResponse: UserResponse ->
+            postModel.getUserPost(idUser.toString()){ userResponse: UserResponse ->
                 when (userResponse){
                     is UserResponse.OnSuccess<*> -> {
                         getPostMutableLiveData.postValue(
